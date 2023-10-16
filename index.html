@@ -3,78 +3,103 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Produce your own website today!</title>
+    <title>Welcome to our Website Services</title>
     <style>
         body {
-            background-color: black;
-            color: white;
             font-family: Arial, sans-serif;
-        }
-        h1 {
             text-align: center;
         }
+
         .container {
-            max-width: 800px;
+            width: 50%;
             margin: 0 auto;
-            padding: 20px;
         }
-        img {
-            max-width: 100%;
+
+        h1 {
+            color: #c0392b;
         }
-        .price-list {
-            margin-top: 20px;
+
+        p {
+            color: #34495e;
+            font-size: 1.1em;
         }
-        .contact {
-            margin-top: 20px;
+
+        .price {
+            border: 1px solid #ddd;
+            padding: 10px;
+            margin: 10px 0;
         }
-        .contact p {
-            margin: 0;
+
+        .choose-btn {
+            background-color: #3498db;
+            color: #fff;
+            padding: 8px 16px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
         }
-        .buttons {
-            margin-top: 20px;
-            text-align: center;
+
+        .contact-form {
+            margin-top: 30px;
         }
-        .buttons a {
-            display: inline-block;
-            padding: 10px 20px;
-            background-color: #007bff;
-            color: white;
-            text-decoration: none;
-            margin: 5px;
+
+        input[type="text"] {
+            width: 100%;
+            padding: 12px;
+            margin: 8px 0;
+            box-sizing: border-box;
+        }
+
+        input[type="submit"] {
+            background-color: #c0392b;
+            color: #fff;
+            padding: 12px 20px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+        input[type="submit"]:hover {
+            background-color: #a93226;
+        }
+
+        .contact-text {
+            margin-top: 30px;
+            font-size: 0.9em;
         }
     </style>
 </head>
 <body>
     <div class="container">
-        <h1>Produce your own website today!</h1>
-        
-        <div class="intro">
-            <p>You can own a personal website, designed however you like, today! All it takes is to send me a message (see contact details below)!</p>
-            <img src="https://www.analyticsinsight.net/wp-content/uploads/2020/11/Artificial-Intelligence-5.jpg" alt="Website Design">
+        <h1>Welcome!</h1>
+        <p>Welcome to the place where you can have a website designed for you by a blink of an eye. We can make you a website of any topic you desire, such as a marketing website, a website for your shops/restaurants, informative websites... for the ideal prices! Feel free to check out more details below and most importantly, don't hesitate!</p>
+        <div class="price">
+            <p>A text-only website with 1 à 2 pages: €5 <button class="choose-btn" onclick="showPopup('5')">Choose</button></p>
+            <p>A text & image website with 1 à 2 pages: €10 <button class="choose-btn" onclick="showPopup('10')">Choose</button></p>
+            <p>A text & image website with 1 à 10 pages: €15 (limited promo!) <button class="choose-btn" onclick="showPopup('15')">Choose</button></p>
         </div>
-        
-        <div class="price-list">
-            <h2>Pricing:</h2>
-            <ul>
-                <li>Basic website (text only): 10€</li>
-                <li>Normal website (with pictures): 15€</li>
-                <li>Professional website (pictures, buttons...): 20€</li>
-            </ul>
+        <div class="contact-form">
+            <h2>Have a question?</h2>
+            <p>Feel free to ask by filling out your personal details.</p>
+            <form>
+                <input type="text" placeholder="Name" required><br>
+                <input type="text" placeholder="Email" required><br>
+                <input type="text" placeholder="Question" required><br>
+                <input type="submit" value="Submit">
+            </form>
         </div>
-        
-        <div class="contact">
-            <h2>Contact Details:</h2>
-            <p>Email: baselkarjo24@gmail.com</p>
-            <p>Discord: xtopg</p>
-        </div>
-        
-        <p>Posess a website today!</p>
-        
-        <div class="buttons">
-            <a href="https://discord.com" target="_blank">Create a discord account today!</a>
-            <a href="https://mail.google.com" target="_blank">Don't have an email? Create one today!</a>
-        </div>
+        <p class="contact-text">You can contact me directly via Discord: xtopg</p>
     </div>
+
+    <script>
+        function showPopup(price) {
+            var email = 'baselkarjo24@gmail.com';
+            var userInput = prompt('Please enter your personal details to proceed with the €' + price + ' option:');
+            if (userInput) {
+                var details = 'Personal Details: ' + userInput + '\nChosen Price: €' + price;
+                window.open('mailto:' + email + '?subject=Website Design Request&body=' + details);
+            }
+        }
+    </script>
 </body>
 </html>
-
