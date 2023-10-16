@@ -31,7 +31,7 @@
         }
 
         .choose-btn {
-            background-color: #3498db;
+            background-color: #c0392b;
             color: #fff;
             padding: 8px 16px;
             border: none;
@@ -39,8 +39,24 @@
             cursor: pointer;
         }
 
-        .contact-form {
-            margin-top: 30px;
+        .popup {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5);
+        }
+
+        .popup-content {
+            background-color: #fff;
+            width: 300px;
+            padding: 20px;
+            border-radius: 5px;
+            text-align: center;
         }
 
         input[type="text"] {
@@ -48,6 +64,12 @@
             padding: 12px;
             margin: 8px 0;
             box-sizing: border-box;
+        }
+
+        .discord-link {
+            color: blue;
+            text-decoration: underline;
+            cursor: pointer;
         }
 
         input[type="submit"] {
@@ -78,6 +100,18 @@
             <p>A text & image website with 1 à 2 pages: €10 <button class="choose-btn" onclick="showPopup('10')">Choose</button></p>
             <p>A text & image website with 1 à 10 pages: €15 (limited promo!) <button class="choose-btn" onclick="showPopup('15')">Choose</button></p>
         </div>
+        <div class="popup" style="display: none;" id="popup">
+            <div class="popup-content">
+                <h2>Fill in your details</h2>
+                <form>
+                    <input type="text" placeholder="What's your email?" required><br>
+                    <input type="text" placeholder="What's your phone number?" required><br>
+                    <input type="text" placeholder="What's your discord username?" required><br>
+                    <p><span>Don't have a discord account?</span> <a class="discord-link" href="https://discord.com" target="_blank">Create one today!</a></p>
+                    <input type="submit" value="Submit">
+                </form>
+            </div>
+        </div>
         <div class="contact-form">
             <h2>Have a question?</h2>
             <p>Feel free to ask by filling out your personal details.</p>
@@ -94,11 +128,21 @@
     <script>
         function showPopup(price) {
             var email = 'baselkarjo24@gmail.com';
-            var userInput = prompt('Please enter your personal details to proceed with the €' + price + ' option:');
-            if (userInput) {
-                var details = 'Personal Details: ' + userInput + '\nChosen Price: €' + price;
+            var popup = document.getElementById('popup');
+            popup.style.display = 'flex';
+            var submitBtn = popup.querySelector('input[type="submit"]');
+            submitBtn.style.backgroundColor = '#c0392b';
+            submitBtn.style.color = '#fff';
+
+            popup.querySelector('form').addEventListener('submit', function (e) {
+                e.preventDefault();
+                var emailInput = popup.querySelector('input[type="text"][placeholder="What\'s your email?"]').value;
+                var phoneInput = popup.querySelector('input[type="text"][placeholder="What\'s your phone number?"]').value;
+                var discordInput = popup.querySelector('input[type="text"][placeholder="What\'s your discord username?"]').value;
+                var details = 'Email: ' + emailInput + '\nPhone Number: ' + phoneInput + '\nDiscord Username: ' + discordInput + '\nChosen Price: €' + price;
                 window.open('mailto:' + email + '?subject=Website Design Request&body=' + details);
-            }
+                popup.style.display = 'none';
+            });
         }
     </script>
 </body>
