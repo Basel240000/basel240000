@@ -31,7 +31,7 @@
             margin: 10px 0;
         }
 
-        .choose-btn, .learn-more-btn, .reasons-btn {
+        .choose-btn, .learn-more-btn, .info-btn {
             background-color: #c0392b;
             color: #fff;
             padding: 8px 16px;
@@ -41,7 +41,7 @@
             margin-left: 10px;
         }
 
-        .popup, .exercise-popup, .reasons-popup {
+        .popup, .exercise-popup, .info-popup {
             display: none;
             position: fixed;
             top: 50%;
@@ -56,7 +56,7 @@
             overflow: auto;
         }
 
-        .popup-content, .exercise-popup-content, .reasons-popup-content {
+        .popup-content, .exercise-popup-content, .info-popup-content {
             position: relative;
         }
 
@@ -119,7 +119,7 @@
             <p>Dumbbells 5-10 kg: €7-€12 
                 <button class="choose-btn" onclick="showPopup('7-12')">Choose</button>
                 <button class="learn-more-btn" onclick="showExercisePopup('5-10')">Learn more</button>
-                <button class="reasons-btn" onclick="showReasonsPopup()">Why should I start training?</button>
+                <button class="info-btn" onclick="showInfoPopup()">Why should I start training?</button>
             </p>
         </div>
         <div class="contact-form">
@@ -153,15 +153,39 @@
         <div class="exercise-popup-content">
             <div class="close-btn" onclick="closeExercisePopup()">X</div>
             <h2>Exercises for Dumbbells 1-3 kg</h2>
-            <!-- Exercise content remains unchanged -->
+            <p>Certainly! Here are three exercises you can perform using 1-3 kg dumbbells:</p>
+            <p><strong>Bicep Curls:</strong></p>
+            <p>Stand with your feet shoulder-width apart, holding a dumbbell in each hand, palms facing forward.</p>
+            <p>Keep your elbows close to your torso and curl the weights up towards your shoulders.</p>
+            <p>Squeeze your biceps at the top, then slowly lower the dumbbells back to the starting position.</p>
+            <p>Perform 3 sets of 12-15 reps.</p>
+            <p><strong>Lateral Raises:</strong></p>
+            <p>Stand with your feet shoulder-width apart, holding a dumbbell in each hand, palms facing your body.</p>
+            <p>Keep a slight bend in your elbows and raise your arms out to the sides until they are parallel to the floor.</p>
+            <p>Pause briefly at the top, then slowly lower the dumbbells back to the starting position.</p>
+            <p>Perform 3 sets of 12-15 reps.</p>
+            <p><strong>Tricep Kickbacks:</strong></p>
+            <p>Hold a dumbbell in each hand and bend forward at your hips, keeping your back straight.</p>
+            <p>Keep your upper arms close to your body and extend your forearms back until they are straight.</p>
+            <p>Squeeze your triceps at the top, then slowly lower the dumbbells back to the starting position.</p>
+            <p>Perform 3 sets of 12-15 reps.</p>
+            <p>Remember to choose a weight that allows you to perform the exercises with proper form while still challenging your muscles. Also, focus on controlled movements and proper breathing throughout each exercise. If any of these exercises cause discomfort or pain, please stop and consult a fitness professional.</p>
         </div>
     </div>
 
-    <div class="reasons-popup" id="reasons-popup">
-        <div class="reasons-popup-content">
-            <div class="close-btn" onclick="closeReasonsPopup()">X</div>
+    <div class="info-popup" id="info-popup">
+        <div class="info-popup-content">
+            <div class="close-btn" onclick="closeInfoPopup()">X</div>
             <h2>Why should I start training?</h2>
-            <!-- The detailed content for reasons why to start training remains unchanged -->
+            <p>Starting a regular training regimen offers numerous benefits for both your physical and mental well-being. Here are some key reasons why you should consider incorporating training into your lifestyle:</p>
+            <p><strong>Improved Physical Health:</strong> Regular exercise can help improve cardiovascular health, increase muscle strength and endurance, and enhance flexibility and balance. It can also help manage weight, reduce the risk of chronic diseases such as heart disease and diabetes, and promote overall physical well-being.</p>
+            <p><strong>Mental Well-being:</strong> Exercise is known to release endorphins, which are chemicals in the brain that act as natural painkillers and mood elevators. Regular physical activity can help reduce stress, alleviate symptoms of anxiety and depression, and improve overall mental health and cognitive function.</p>
+            <p><strong>Increased Energy Levels:</strong> Engaging in regular physical activity can boost your energy levels and improve your overall stamina. It can also enhance your ability to perform daily tasks, leading to an overall improvement in quality of life and productivity.</p>
+            <p><strong>Better Sleep:</strong> Exercise can help regulate your sleep patterns and improve the quality of your sleep. Regular physical activity promotes deeper and more restful sleep, which is essential for overall health and well-being.</p>
+            <p><strong>Social Interaction:</strong> Joining a gym or participating in group fitness classes can provide opportunities for social interaction and a sense of community, which can contribute to improved mood and overall mental well-being.</p>
+            <p><strong>Boosted Self-Confidence:</strong> Achieving fitness goals and making progress in your training can significantly boost your self-confidence and self-esteem. Setting and accomplishing fitness goals can also provide a sense of purpose and fulfillment.</p>
+            <p><strong>Long-Term Health Benefits:</strong> Regular exercise is associated with a reduced risk of developing various chronic diseases, such as cardiovascular disease, type 2 diabetes, certain cancers, and osteoporosis. Engaging in regular physical activity can contribute to a longer and healthier life.</p>
+            <p>Remember that it's important to consult a healthcare professional before starting any new exercise program, especially if you have any existing health conditions or concerns. They can provide guidance on what type of exercise is suitable for your individual needs and help you create a safe and effective training plan.</p>
         </div>
     </div>
 
@@ -176,9 +200,9 @@
             exercisePopup.style.display = 'block';
         }
 
-        function showReasonsPopup() {
-            var reasonsPopup = document.getElementById('reasons-popup');
-            reasonsPopup.style.display = 'block';
+        function showInfoPopup() {
+            var infoPopup = document.getElementById('info-popup');
+            infoPopup.style.display = 'block';
         }
 
         function closePopup() {
@@ -191,9 +215,9 @@
             exercisePopup.style.display = 'none';
         }
 
-        function closeReasonsPopup() {
-            var reasonsPopup = document.getElementById('reasons-popup');
-            reasonsPopup.style.display = 'none';
+        function closeInfoPopup() {
+            var infoPopup = document.getElementById('info-popup');
+            infoPopup.style.display = 'none';
         }
     </script>
 </body>
