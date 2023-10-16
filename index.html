@@ -5,90 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Welcome to our Website Services</title>
     <style>
-        body {
-            font-family: Arial, sans-serif;
-            text-align: center;
-        }
-
-        .container {
-            width: 50%;
-            margin: 0 auto;
-        }
-
-        h1 {
-            color: #c0392b;
-        }
-
-        p {
-            color: #34495e;
-            font-size: 1.1em;
-        }
-
-        .price {
-            border: 1px solid #ddd;
-            padding: 10px;
-            margin: 10px 0;
-        }
-
-        .choose-btn {
-            background-color: #c0392b;
-            color: #fff;
-            padding: 8px 16px;
-            border: none;
-            border-radius: 4px;
-            cursor: pointer;
-        }
-
-        .popup {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background-color: rgba(0, 0, 0, 0.5);
-        }
-
-        .popup-content {
-            background-color: #fff;
-            width: 300px;
-            padding: 20px;
-            border-radius: 5px;
-            text-align: center;
-        }
-
-        input[type="text"] {
-            width: 100%;
-            padding: 12px;
-            margin: 8px 0;
-            box-sizing: border-box;
-        }
-
-        .discord-link {
-            color: blue;
-            text-decoration: underline;
-            cursor: pointer;
-        }
-
-        input[type="submit"] {
-            background-color: #c0392b;
-            color: #fff;
-            padding: 12px 20px;
-            border: none;
-            border-radius: 4px;
-            cursor: pointer;
-        }
-
-        input[type="submit"]:hover {
-            background-color: #a93226;
-        }
-
-        .contact-text {
-            margin-top: 30px;
-            font-size: 0.9em;
-        }
+        /* ... CSS styles from the previous script ... */
     </style>
 </head>
 <body>
@@ -100,17 +17,17 @@
             <p>A text & image website with 1 à 2 pages: €10 <button class="choose-btn" onclick="showPopup('10')">Choose</button></p>
             <p>A text & image website with 1 à 10 pages: €15 (limited promo!) <button class="choose-btn" onclick="showPopup('15')">Choose</button></p>
         </div>
-        <div class="popup" style="display: none;" id="popup">
-            <div class="popup-content">
-                <h2>Fill in your details</h2>
-                <form>
-                    <input type="text" placeholder="What's your email?" required><br>
-                    <input type="text" placeholder="What's your phone number?" required><br>
-                    <input type="text" placeholder="What's your discord username?" required><br>
-                    <p><span>Don't have a discord account?</span> <a class="discord-link" href="https://discord.com" target="_blank">Create one today!</a></p>
-                    <input type="submit" value="Submit">
-                </form>
-            </div>
+        <h2>See more: fitness!</h2>
+        <p>You see, in this age, many people have lost their strength by sitting too much on their phones, by doing fewer activities, etc. But it is time to rise again. We introduce you to our fitness shop where we sell objects that help you on your fitness and strength training journey, such as dumbbells, kettlebells, weighted vests... for very good prices! For every object, we have a scientific text that teaches you the exercises you can do for the chosen object and how to perform it correctly! Come on, it is time to become a better version of ourselves!</p>
+        <div class="price">
+            <p>Dumbbells 1-3 kg: €1-€3 
+                <button class="choose-btn" onclick="showPopup('1-3')">Choose</button>
+                <button class="learn-more-btn" onclick="showExercisePopup('1-3')">Learn more</button>
+            </p>
+            <p>Dumbbells 5-10 kg: €7-€12 
+                <button class="choose-btn" onclick="showPopup('7-12')">Choose</button>
+                <button class="learn-more-btn" onclick="showExercisePopup('5-10')">Learn more</button>
+            </p>
         </div>
         <div class="contact-form">
             <h2>Have a question?</h2>
@@ -125,24 +42,54 @@
         <p class="contact-text">You can contact me directly via Discord: xtopg</p>
     </div>
 
-    <script>
-        function showPopup(price) {
-            var email = 'baselkarjo24@gmail.com';
-            var popup = document.getElementById('popup');
-            popup.style.display = 'flex';
-            var submitBtn = popup.querySelector('input[type="submit"]');
-            submitBtn.style.backgroundColor = '#c0392b';
-            submitBtn.style.color = '#fff';
+    <div class="popup" style="display: none;" id="popup">
+        <div class="popup-content">
+            <span onclick="closePopup()" style="float: right; cursor: pointer;">X</span>
+            <h2>Fill in your details</h2>
+            <form>
+                <input type="text" placeholder="What's your email?" required><br>
+                <input type="text" placeholder="What's your phone number?" required><br>
+                <input type="text" placeholder="What's your Discord username?" required><br>
+                <p><span>Don't have a Discord account?</span> <a class="discord-link" href="https://discord.com" target="_blank">Create one today!</a></p>
+                <input type="submit" value="Submit" style="background-color: #c0392b; color: #fff;">
+            </form>
+        </div>
+    </div>
 
-            popup.querySelector('form').addEventListener('submit', function (e) {
-                e.preventDefault();
-                var emailInput = popup.querySelector('input[type="text"][placeholder="What\'s your email?"]').value;
-                var phoneInput = popup.querySelector('input[type="text"][placeholder="What\'s your phone number?"]').value;
-                var discordInput = popup.querySelector('input[type="text"][placeholder="What\'s your discord username?"]').value;
-                var details = 'Email: ' + emailInput + '\nPhone Number: ' + phoneInput + '\nDiscord Username: ' + discordInput + '\nChosen Price: €' + price;
-                window.open('mailto:' + email + '?subject=Website Design Request&body=' + details);
-                popup.style.display = 'none';
-            });
+    <div class="exercise-popup" style="display: none;" id="exercise-popup">
+        <div class="popup-content">
+            <span onclick="closeExercisePopup()" style="float: right; cursor: pointer;">X</span>
+            <h2>Exercises for Dumbbells 1-3 kg</h2>
+            <p>Certainly! Here are three exercises you can perform using 1-3 kg dumbbells:</p>
+            <p>Bicep Curls:</p>
+            <p>Stand with your feet shoulder-width apart, holding a dumbbell in each hand, palms facing forward.</p>
+            <p>Keep your elbows close to your torso and curl the weights up towards your shoulders.</p>
+            <p>Squeeze your biceps at the top, then slowly lower the dumbbells back to the starting position.</p>
+            <p>Perform 3 sets of 12-15 reps.</p>
+            <p>Lateral Raises:</p>
+            <p>Stand with your feet shoulder-width apart, holding a dumbbell in each hand, palms facing your body.</p>
+            <p>Keep a slight bend in your elbows and raise your arms out to the sides until they are parallel to the floor.</p>
+            <p>Pause briefly at the top, then slowly lower the dumbbells back to the starting position.</p>
+            <p>Perform 3 sets of 12-15 reps.</p>
+            <p>Tricep Kickbacks:</p>
+            <p>Hold a dumbbell in each hand and bend forward at your hips, keeping your back straight.</p>
+            <p>Keep your upper arms close to your body and extend your forearms back until they are straight.</p>
+            <p>Squeeze your triceps at the top, then slowly lower the dumbbells back to the starting position.</p>
+            <p>Perform 3 sets of 12-15 reps.</p>
+            <p>Remember to choose a weight that allows you to perform the exercises with proper form while still challenging your muscles. Also, focus on controlled movements and proper breathing throughout each exercise. If any of these exercises cause discomfort or pain, please stop and consult a fitness professional.</p>
+        </div>
+    </div>
+
+    <script>
+        /* ... JavaScript functions from the previous script ... */
+        function showExercisePopup(weight) {
+            var exercisePopup = document.getElementById('exercise-popup');
+            exercisePopup.style.display = 'flex';
+        }
+
+        function closeExercisePopup() {
+            var exercisePopup = document.getElementById('exercise-popup');
+            exercisePopup.style.display = 'none';
         }
     </script>
 </body>
