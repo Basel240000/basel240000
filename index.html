@@ -6,6 +6,41 @@
     <title>Welcome to our Website Services</title>
     <style>
         /* CSS styles from the previous script */
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+        }
+
+        .container {
+            width: 50%;
+            margin: 0 auto;
+        }
+
+        h1 {
+            color: #c0392b;
+        }
+
+        p {
+            color: #34495e;
+            font-size: 1.1em;
+        }
+
+        .price {
+            border: 1px solid #ddd;
+            padding: 10px;
+            margin: 10px 0;
+        }
+
+        .choose-btn, .learn-more-btn {
+            background-color: #c0392b;
+            color: #fff;
+            padding: 8px 16px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            margin-left: 10px;
+        }
+
         .popup, .exercise-popup {
             display: none;
             position: fixed;
@@ -32,37 +67,96 @@
             cursor: pointer;
             padding: 10px;
         }
+
+        .discord-link {
+            color: blue;
+            text-decoration: underline;
+            cursor: pointer;
+        }
+
+        input[type="text"] {
+            width: 100%;
+            padding: 12px;
+            margin: 8px 0;
+            box-sizing: border-box;
+        }
+
+        input[type="submit"] {
+            background-color: #c0392b;
+            color: #fff;
+            padding: 12px 20px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+        input[type="submit"]:hover {
+            background-color: #a93226;
+        }
+
+        .contact-text {
+            margin-top: 30px;
+            font-size: 0.9em;
+        }
     </style>
 </head>
 <body>
     <div class="container">
-        <!-- Rest of the HTML content remains unchanged -->
-
-        <div class="popup" id="popup">
-            <div class="popup-content">
-                <div class="close-btn" onclick="closePopup()">X</div>
-                <h2>Fill in your details</h2>
-                <form>
-                    <input type="text" placeholder="What's your email?" required><br>
-                    <input type="text" placeholder="What's your phone number?" required><br>
-                    <input type="text" placeholder="What's your Discord username?" required><br>
-                    <p><span>Don't have a Discord account?</span> <a class="discord-link" href="https://discord.com" target="_blank">Create one today!</a></p>
-                    <input type="submit" value="Submit" style="background-color: #c0392b; color: #fff;">
-                </form>
-            </div>
+        <h1>Welcome!</h1>
+        <p>Welcome to the place where you can have a website designed for you by a blink of an eye. We can make you a website of any topic you desire, such as a marketing website, a website for your shops/restaurants, informative websites... for the ideal prices! Feel free to check out more details below and most importantly, don't hesitate!</p>
+        <div class="price">
+            <p>A text-only website with 1 à 2 pages: €5 <button class="choose-btn" onclick="showPopup('5')">Choose</button></p>
+            <p>A text & image website with 1 à 2 pages: €10 <button class="choose-btn" onclick="showPopup('10')">Choose</button></p>
+            <p>A text & image website with 1 à 10 pages: €15 (limited promo!) <button class="choose-btn" onclick="showPopup('15')">Choose</button></p>
         </div>
+        <h2>See more: fitness!</h2>
+        <p>You see, in this age, many people have lost their strength by sitting too much on their phones, by doing fewer activities, etc. But it is time to rise again. We introduce you to our fitness shop where we sell objects that help you on your fitness and strength training journey, such as dumbbells, kettlebells, weighted vests... for very good prices! For every object, we have a scientific text that teaches you the exercises you can do for the chosen object and how to perform it correctly! Come on, it is time to become a better version of ourselves!</p>
+        <div class="price">
+            <p>Dumbbells 1-3 kg: €1-€3 
+                <button class="choose-btn" onclick="showPopup('1-3')">Choose</button>
+                <button class="learn-more-btn" onclick="showExercisePopup('1-3')">Learn more</button>
+            </p>
+            <p>Dumbbells 5-10 kg: €7-€12 
+                <button class="choose-btn" onclick="showPopup('7-12')">Choose</button>
+                <button class="learn-more-btn" onclick="showExercisePopup('5-10')">Learn more</button>
+            </p>
+        </div>
+        <div class="contact-form">
+            <h2>Have a question?</h2>
+            <p>Feel free to ask by filling out your personal details.</p>
+            <form>
+                <input type="text" placeholder="Name" required><br>
+                <input type="text" placeholder="Email" required><br>
+                <input type="text" placeholder="Question" required><br>
+                <input type="submit" value="Submit">
+            </form>
+        </div>
+        <p class="contact-text">You can contact me directly via Discord: xtopg</p>
+    </div>
 
-        <div class="exercise-popup" id="exercise-popup">
-            <div class="exercise-popup-content">
-                <div class="close-btn" onclick="closeExercisePopup()">X</div>
-                <h2>Exercises for Dumbbells 1-3 kg</h2>
-                <!-- Exercise content remains unchanged -->
-            </div>
+    <div class="popup" id="popup">
+        <div class="popup-content">
+            <div class="close-btn" onclick="closePopup()">X</div>
+            <h2>Fill in your details</h2>
+            <form>
+                <input type="text" placeholder="What's your email?" required><br>
+                <input type="text" placeholder="What's your phone number?" required><br>
+                <input type="text" placeholder="What's your Discord username?" required><br>
+                <p><span>Don't have a Discord account?</span> <a class="discord-link" href="https://discord.com" target="_blank">Create one today!</a></p>
+                <input type="submit" value="Submit" style="background-color: #c0392b; color: #fff;">
+            </form>
+        </div>
+    </div>
+
+    <div class="exercise-popup" id="exercise-popup">
+        <div class="exercise-popup-content">
+            <div class="close-btn" onclick="closeExercisePopup()">X</div>
+            <h2>Exercises for Dumbbells 1-3 kg</h2>
+            <!-- Exercise content remains unchanged -->
         </div>
     </div>
 
     <script>
-        /* JavaScript functions from the previous script */
         function showPopup(price) {
             var popup = document.getElementById('popup');
             popup.style.display = 'block';
